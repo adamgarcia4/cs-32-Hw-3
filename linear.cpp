@@ -12,12 +12,14 @@ int countFalse(const string a[], int n);
 bool allTrue(const string a[], int n);
 int firstFalse(const string a[], int n);
 int indexOfLeast(const string a[], int size);
+bool includes(const string a1[], int n1, const string a2[], int n2);
 
 int main()
 {
-	string a[4] = { "","","", "" };//, "2", "3"};
+	string a[4] = { "1","2","3","4"};//, "2", "3"};
+	string b[3] = { "1","2","3" };
 	//cout << somePredicate("");
-	cout << indexOfLeast(a,4);
+	cout << includes(a, 4, b, 3);
 	//cout << indexOfLeast(a, 1);
 	cin.ignore(1000,'\n');
 }
@@ -47,21 +49,24 @@ bool allTrue(const string a[], int n)
 
 // Return the number of elements in the array for which the
 // somePredicate function returns false.
-int countFalse(const string a[], int n)
+int countFalse(const string a[], int size)
 {
+	//there are no elements in array, so return -1.
+	if (size == 0)
+		return -1;
+	int temp = countFalse(a, size - 1); //recursion only happens on smaller cases.  Infinite recursion avoided.
+	
+										//now analyze cases for this 'n' case.  make sure that the entire 'n' case performs correctly.
 
-	if (n == 0)//end of loop
+	if (temp != -1) //in this case, temp is storing amount of false cases.  So, check the 'n' case, and deal with that case properly.
 	{
+		if (somePredicate(a[size - 1])==false) //if 'n'th case is true, then add one to counter.
+			return temp + 1;
+		else //'n'th case isn't true, so return the 'n-1' case.
+			return temp;
+	}
+	else //function hit the -1 case, so that means that size is zero, so in the zeroth case, the count of falses is of course 0.  This is how popping starts.
 		return 0;
-	}
-	else if (!somePredicate(a[n-1]))
-	{
-		return 1+ countFalse(a, n - 1);
-	}
-	else
-	{
-		return countFalse(a, n - 1);
-	}
 }
 
 // Return the subscript of the first element in the array for which
@@ -91,7 +96,6 @@ int firstFalse(const string a[], int size)
 // the smallest subscript m such that a[m] <= a[k] for all
 // k from 0 to n-1).  If the array has no elements to examine,
 // return -1.
-
 int indexOfLeast(const string a[], int size)
 {
 	//there are no elements to examine, so return -1.
@@ -139,4 +143,34 @@ int indexOfLeast(const string a[], int size)
 	//}
 	//else
 	//	return 1+indexOfLeast(a+1,size-1);  // This is incorrect.
+}
+
+/*
+If all n2 elements of a2 appear in the n1 element array a1, in
+ the same order (though not necessarily consecutively), then
+ return true; otherwise (i.e., if the array a1 does not include
+ a2 as a not-necessarily-contiguous subsequence), return false.
+ (Of course, if a2 is empty (i.e., n2 is 0), return true.)
+ For example, if a1 is the 7 element array
+    "stan" "kyle" "cartman" "kenny" "kyle" "cartman" "butters"
+ then the function should return true if a2 is
+    "kyle" "kenny" "butters"
+ or
+    "kyle" "cartman" "cartman"
+ and it should return false if a2 is
+    "kyle" "butters" "kenny"
+ or
+    "stan" "kenny" "kenny"
+*/
+bool includes(const string a1[], int size1, const string a2[], int size2)
+{
+	if (size1 <= 0)
+		return false;
+	if (size2 <= 0)
+		return true;
+
+	if (a1[size1 - 1] == a2[size2 - 1]) //if last elements match
+		return includes(a1, size1 - 1, a2, size2 - 1);
+	else
+		return includes(a1, size1 - 1, a2, size2 - 1);
 }
