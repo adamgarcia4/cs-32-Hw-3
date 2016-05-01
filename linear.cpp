@@ -15,9 +15,9 @@ int indexOfLeast(const string a[], int size);
 
 int main()
 {
-	string a[4] = { "","","D", "" };//, "2", "3"};
+	string a[4] = { "","","", "" };//, "2", "3"};
 	//cout << somePredicate("");
-	cout << firstFalse(a,4);
+	cout << indexOfLeast(a,4);
 	//cout << indexOfLeast(a, 1);
 	cin.ignore(1000,'\n');
 }
@@ -87,24 +87,12 @@ int firstFalse(const string a[], int size)
 	}
 }
 
-//int firstFalse(const string a[], int size)
-//{
-//	//End Array Base case
-//	if (size <= 0)
-//		return -1;
-//	//If false, return this place.
-//	else if (!somePredicate(a[0]))
-//		return 0;
-//	return 1 + firstFalse(a + 1, size - 1);
-//}
-
 // Return the subscript of the least string in the array (i.e.,
 // the smallest subscript m such that a[m] <= a[k] for all
 // k from 0 to n-1).  If the array has no elements to examine,
 // return -1.
 
-
-/*int indexOfLeast(const string a[], int size)
+int indexOfLeast(const string a[], int size)
 {
 	//there are no elements to examine, so return -1.
 	if (size <= 0)
@@ -115,25 +103,40 @@ int firstFalse(const string a[], int size)
 
 	int temp = indexOfLeast(a, size - 1); //Size will always hit 1 or zero.  Infinite recursion avoided.
 
+	if (temp != -1) //that means that 'n-1' case found the index of the least string value.
+	{
+		//the index of the least is either that temp or the n case.
+		if (a[size - 1] < a[temp])
+		{
+			return size - 1;
+		}
+		else if (a[size - 1] == a[temp])
+			return temp;
+		else
+			return temp;
+	}
+	else //indexofleast is -1, so 
+	{
+		return -1;
+	}
 
 
 
-	//single element base case
+	////single element base case
+	////else if (size == 1)
+	//	//return size;
+	////more than two elements.
 	//else if (size == 1)
-		//return size;
-	//more than two elements.
-	else if (size == 1)
-	{
+	//{
 
-	}
-	else if (a[0] <= a[1])//if current element is smaller than next one
-	{
-		cout << "elem 0 is: " << a[0] << endl;
-		cout << "elem 1 is: " << a[1] << endl;
-		cin.ignore(1000, '\n');
-		return 0;
-	}
-	else
-		return 1+indexOfLeast(a+1,size-1);  // This is incorrect.
+	//}
+	//else if (a[0] <= a[1])//if current element is smaller than next one
+	//{
+	//	cout << "elem 0 is: " << a[0] << endl;
+	//	cout << "elem 1 is: " << a[1] << endl;
+	//	cin.ignore(1000, '\n');
+	//	return 0;
+	//}
+	//else
+	//	return 1+indexOfLeast(a+1,size-1);  // This is incorrect.
 }
-*/
