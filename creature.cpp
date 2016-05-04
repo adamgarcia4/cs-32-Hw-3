@@ -51,7 +51,7 @@ void animate(const Creature* c)
 	cout << ", will now " << c->move() << ".\n";
 }
 
-int test()
+int test1()
 {
 	Creature* creatures[4];
 	creatures[0] = new Phoenix("Squawkes");

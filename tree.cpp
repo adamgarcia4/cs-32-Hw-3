@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -113,8 +114,21 @@ void order(string a[], int size)
 	if (firstNotLessThan >= 2 && firstNotLessThan < size)
 		order(a, firstNotLessThan);
 	if (firstGreaterThan < (size - 1))
-		order(a + firstGreaterThan, n - firstGreaterThan);
+		order(a + firstGreaterThan, size - firstGreaterThan);
 
 	return;
 	//return;  // This is not always correct.
+}
+
+int main()
+{
+	string a[4] = { "a","c","b","d" };//, "2", "3"};
+
+	order(a, 4);
+	for (int i = 0; i < 4; i++)
+	{
+		cout << a[i]<<endl;
+	}
+	cin.ignore(1000, '\n');
+	return 1;
 }

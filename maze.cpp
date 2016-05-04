@@ -59,4 +59,5 @@ int main()
 	else
 		cout << "Out of luck!" << endl;
 	cin.ignore(1000, '\n');
+	return 1;
 }

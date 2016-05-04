@@ -14,7 +14,7 @@ int firstFalse(const string a[], int n);
 int indexOfLeast(const string a[], int size);
 bool includes(const string a1[], int n1, const string a2[], int n2);
 
-void test()
+int main()
 {
 	string a[4] = { "1","2","3","4"};//, "2", "3"};
 	string b[3] = { "1","2","3" };
