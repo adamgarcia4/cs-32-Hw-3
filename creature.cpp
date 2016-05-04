@@ -1,6 +1,8 @@
+/*
 #include <string>
 #include <iostream>
 using namespace std;
+*/
 //Class Declarations
 class Creature //Base Class
 {
@@ -41,6 +43,7 @@ public:
 	virtual string move() const;
 };
 
+/*
 void animate(const Creature* c)
 {
 	cout << c->name() << ", who is ";
@@ -50,7 +53,9 @@ void animate(const Creature* c)
 		cout << "immortal";
 	cout << ", will now " << c->move() << ".\n";
 }
+*/
 
+/*
 int test1()
 {
 	Creature* creatures[4];
@@ -72,6 +77,7 @@ int test1()
 	cin.ignore(10000, '\n');
 	return 1;
 }
+*/
 
 //****Creature Definition*******
 Creature::Creature(string name) :m_name(name) {};

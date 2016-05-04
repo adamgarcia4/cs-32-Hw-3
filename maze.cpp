@@ -1,7 +1,8 @@
+/*
 #include <iostream>
 
 using namespace std;
-
+*/
 bool pathExists(char maze[][10], int sr, int sc, int er, int ec)
 {
 	if (sr == er && sc == ec) //if starting location is ending location
@@ -38,7 +39,7 @@ bool pathExists(char maze[][10], int sr, int sc, int er, int ec)
 
 	return false;
 }
-
+/*
 int main()
 {
 	char maze[10][10] = {
@@ -61,3 +62,5 @@ int main()
 	cin.ignore(1000, '\n');
 	return 1;
 }
+
+/*

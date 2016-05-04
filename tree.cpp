@@ -1,8 +1,9 @@
+/*
 #include <string>
 #include <iostream>
 
 using namespace std;
-
+*/
 /*
 Return the number of ways that all n2 elements of a2 appear
  in the n1 element array a1 in the same order (though not
@@ -119,7 +120,7 @@ void order(string a[], int size)
 	return;
 	//return;  // This is not always correct.
 }
-
+/*
 int main()
 {
 	string a[4] = { "a","c","b","d" };//, "2", "3"};
@@ -132,3 +133,4 @@ int main()
 	cin.ignore(1000, '\n');
 	return 1;
 }
+*/

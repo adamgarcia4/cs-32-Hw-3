@@ -1,19 +1,24 @@
+/*
 #include <string>
 #include <iostream>
 
 using namespace std;
+*/
 
 //Predicate function implementation if empty.
+/*
 bool somePredicate(string s)
 {
 	return s.empty();
 }
+*/
 int countFalse(const string a[], int n);
 bool allTrue(const string a[], int n);
 int firstFalse(const string a[], int n);
 int indexOfLeast(const string a[], int size);
 bool includes(const string a1[], int n1, const string a2[], int n2);
 
+/*
 int main()
 {
 	string a[4] = { "1","2","3","4"};//, "2", "3"};
@@ -23,6 +28,7 @@ int main()
 	//cout << indexOfLeast(a, 1);
 	cin.ignore(1000,'\n');
 }
+*/
 
 //Return false if the somePredicate function returns false for at least one of the array elements; return true otherwise.
 //array of strings
